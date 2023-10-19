@@ -4,7 +4,6 @@ export default function Home() {
   return (
     <div>
       <h2>Reminder</h2>
-      <UserButton afterSignOutUrl="/" />
     </div>
   );
 }
