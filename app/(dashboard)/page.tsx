@@ -11,6 +11,7 @@ import { currentUser } from "@clerk/nextjs";
 
 import { Suspense } from "react";
 import { Loading } from "./Loading";
+import CollectionCard from "@/components/CollectionCard";
 
 export default async function Home() {
   return (
@@ -77,9 +78,13 @@ async function CollectionList() {
   }
 
   return (
-    <div>
-      Collections: {collections.length}
+    <>
       <CreateCollectionBtn />
-    </div>
+      <div className="flex flex-col gap-4 mt-6">
+        {collections?.map((collection) => (
+          <CollectionCard key={collection.id} collection={collection} />
+        ))}
+      </div>
+    </>
   );
 }

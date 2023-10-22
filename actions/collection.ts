@@ -22,3 +22,18 @@ export async function createCollection(form: createCollectionSchemaType) {
     },
   });
 }
+
+export async function deleteCollection(id: number) {
+  const user = await currentUser();
+
+  if (!user) {
+    throw new Error("User is not found");
+  }
+  await wait(1000);
+
+  return await prisma.collection.delete({
+    where: {
+      id,
+    },
+  });
+}
