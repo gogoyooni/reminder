@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react";
 
-import { Collection } from "@prisma/client";
+import { Collection, Task } from "@prisma/client";
 
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible";
 import { Button } from "./ui/button";
