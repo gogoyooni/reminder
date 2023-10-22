@@ -31,16 +31,18 @@ import { toast } from "./ui/use-toast";
 import { useRouter } from "next/navigation";
 
 interface Props {
-  collection: Collection;
+  collection: Collection & {
+    tasks: Task[];
+  };
 }
-
-const tasks: string[] = ["Task 1", "Task 2", "Task 3", "Task 4"];
 
 const CollectionCard = ({ collection }: Props) => {
   const [isOpen, setIsOpen] = useState(true);
   const router = useRouter();
 
   const [isLoading, startTransition] = useTransition();
+
+  const { tasks } = collection;
 
   const removeCollection = async () => {
     try {
@@ -84,7 +86,7 @@ const CollectionCard = ({ collection }: Props) => {
             <Progress className="rounded-none" value={55} />
             <div className="p-4 gap-3 flex flex-col">
               {tasks.map((task: any) => (
-                <div>Moked task</div>
+                <div key={task.id}>{task.content}</div>
               ))}
             </div>
           </>

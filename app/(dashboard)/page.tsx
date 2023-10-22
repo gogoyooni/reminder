@@ -60,6 +60,9 @@ async function CollectionList() {
     where: {
       userId: user?.id,
     },
+    include: {
+      tasks: true,
+    },
   });
 
   if (collections.length === 0) {
