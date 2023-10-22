@@ -9,4 +9,4 @@ export enum CollectionColors {
   strawberry = "bg-gradient-to-r from-yellow-200 via-pink-200 to-pink-400",
 }
 
-export type CollectionColorType = keyof typeof CollectionColors;
+export type CollectionColor = keyof typeof CollectionColors;

@@ -1,4 +1,5 @@
 import CreateCollectionBtn from "@/components/CreateCollectionBtn";
+
 import { SadFace } from "@/components/icons/SadFace";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -9,6 +10,7 @@ import { wait } from "@/lib/wait";
 import { currentUser } from "@clerk/nextjs";
 
 import { Suspense } from "react";
+import { Loading } from "./Loading";
 
 export default async function Home() {
   return (
@@ -16,7 +18,8 @@ export default async function Home() {
       <Suspense fallback={<WelcomeMessageFallback />}>
         <WelcomeMessage />
       </Suspense>
-      <Suspense fallback={<div>Loading collections...</div>}>
+      {/* <Suspense fallback={<div>Loading collections...</div>}> */}
+      <Suspense fallback={<Loading />}>
         <CollectionList />
       </Suspense>
     </>
@@ -66,8 +69,17 @@ async function CollectionList() {
           <AlertTitle>There are no collections yet</AlertTitle>
           <AlertDescription>Create a collection to get started</AlertDescription>
         </Alert>
-        <CreateCollectionBtn />
+        <div>
+          <CreateCollectionBtn />
+        </div>
       </div>
     );
   }
+
+  return (
+    <div>
+      Collections: {collections.length}
+      <CreateCollectionBtn />
+    </div>
+  );
 }
