@@ -43,6 +43,7 @@ const CreateTaskDialog = ({ open, collection, setOpen }: Props) => {
 
   const openChangeHandler = (value: boolean) => {
     setOpen(value);
+    form.reset();
   };
 
   const onSubmit = async (data: createTaskSchemaType) => {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useMemo, useState, useTransition } from "react";
 
 import { Collection, Task } from "@prisma/client";
 
@@ -67,6 +67,14 @@ const CollectionCard = ({ collection }: Props) => {
     }
   };
 
+  const tasksDone: number = useMemo(() => {
+    return collection.tasks.filter((task) => task.done).length;
+  }, [collection.tasks]);
+
+  const totalTasks = collection.tasks.length;
+
+  const progress = collection.tasks.length === 0 ? 0 : (tasksDone / totalTasks) * 100;
+
   return (
     <>
       <CreateTaskDialog
@@ -109,7 +117,7 @@ const CollectionCard = ({ collection }: Props) => {
           )}
           {
             <>
-              <Progress className="rounded-none" value={55} />
+              <Progress className="rounded-none" value={progress} />
               <div className="p-4 gap-3 flex flex-col">
                 {tasks.map((task: any) => (
                   <TaskCard key={task.id} task={task} />
