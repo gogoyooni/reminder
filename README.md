@@ -1,36 +1,19 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Reminder
 
-## Getting Started
+**목표**   
+1. Next.js의 Server action을 통해 데이터베이스에 바로 데이터를 주고 받는 것을 해보며 익숙해진다.
+2. Shadcn UI 라이브러리에 익숙해진다.
+3. Tailwind에 더 익숙해진다.
+4. React-hook-form, Zod 그리고 TypeScript에 더 익숙해진다.
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 기능
+- Server action을 통해 db에 바로 데이터를 전송하여 UI에 바로 반영
+- 기본적인 CRUD 기능
+- 로그인 기능(구글 로그인) by clerk
+  
+## 느낀점
+- Next.js의 Server action을 통해 데이터를 db로 보낸 후에 UI에 변경된 데이터를 Next.js에서 제공해주는 refresh 기능을 사용하여 페이지를 리로드하여 반영하는 것이 생각보다 UI가 부드럽게 바뀐다는 느낌이 없어 react-query를 쓰는 것이 사용자 경험 측면에서는 더 나을 것으로 보인다.
+- Shadcn을 사용해보니 직접 서비스에 필요한 컴포넌트들을 다 만드는 거에 비해 아주 효율적이고 개발 속도를 많이 향상시켜준다. 최대한 빨리 서비스를 만들어 시장에 테스트하거나 또는 초기 단계의 스타트업이라면 적극적으로 활용할 것으로 보인다.
+- Tailwind를 쓰면 컴포넌트를 만들때 CSS파일에 왔다 갔다 하지 않으므로 엄청 빨리 스타일링을 할 수 있다는 장점뿐만 아니라 tailwind에서 이미 클래스를 그대로 커스터마이징하여 내가 만든 클래스에도 적용할 수 있어 편리하다.
+- React-hook-form을 zod와 함께 써보니 유저로부터 받은 인풋값들에 대한 validation 체크를 위한 메소드들이 다 있어서 빨리 form validation 체크가 가능하다.
+- Clerk 이라는 로그인 라이브러리를 사용해보니 상당히 편리하지만 서비스를 이용하는 유저의 데이터를 공유할 수 밖에 없다는 점이 좋지 않다. 활동유저가 5000명 이상 되지 않거나 소규모로 서비스를 운영할 것이라면 추천할만 하다.
