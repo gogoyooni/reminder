@@ -9,7 +9,7 @@
 ## 기능
 - Server action을 통해 db에 바로 데이터를 전송하여 UI에 바로 반영
 - 기본적인 CRUD 기능
-- 로그인 기능(구글 로그인) by clerk
+- Login / Sign-up (이메일/구글) by clerk
   
 ## 느낀점
 - Next.js의 Server action을 통해 데이터를 db로 보낸 후에 UI에 변경된 데이터를 Next.js에서 제공해주는 refresh 기능을 사용하여 페이지를 리로드하여 반영하는 것이 생각보다 UI가 부드럽게 바뀐다는 느낌이 없어 react-query를 쓰는 것이 사용자 경험 측면에서는 더 나을 것으로 보인다.
